@@ -4,8 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HRT Recorder：激素替代治疗的用药记录、血药浓度估算与血检校准工具，数据仅保存在本地浏览器。"
+    />
+    <meta name="theme-color" content="#ffffff" />
     <title>HRT Recorder</title>
-    <script type="module" crossorigin src="/assets/index-BhlsuCuB.js"></script>
+    <style>html{background:#fff}html[data-theme=dark]{background:#1d232a}</style>
+    <script>
+      // 在样式生效前先按上次保存的主题设置 data-theme，避免深色模式闪白（FOUC）
+      ;(function () {
+        try {
+          var keys = ['hrt-recorder-data-v3', 'hrt-recorder-data-v2']
+          for (var i = 0; i < keys.length; i++) {
+            var raw = localStorage.getItem(keys[i])
+            if (!raw) continue
+            var theme = (JSON.parse(raw) || {}).settings
+            if (theme && theme.theme) {
+              document.documentElement.dataset.theme = theme.theme
+              return
+            }
+          }
+        } catch (e) {
+          /* 读不到就用默认浅色 */
+        }
+      })()
+    </script>
+    <script type="module" crossorigin src="/assets/index-C01JcShJ.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-OnaUXRgL.css">
   </head>
   <body>
